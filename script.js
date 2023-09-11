@@ -33,13 +33,27 @@ const personalMovieDB = {
     private: false
 };
 
-const a = prompt('Один из последних просмотренных фильмов?',''),
-      b = prompt('На сколько оцените его?',''),
-      c = prompt('Один из последних просмотренных фильмов?',''),
-      d = prompt('На сколько оцените его?','');
 
+for (let i = 0; i < 2; i++) {
+    const a = prompt('Один из последних просмотренных фильмов?',''),
+          b = prompt('На сколько оцените его?','');
 
-personalMovieDB.movies[a] = b;
-personalMovieDB.movies[c] = d;
+    if (a != null && b != null && a != '' && b != '' && a.length <= 50 && b.length <= 50) {
+        console.log('done');
+    } else {
+        console.log('error');
+        i--;
+    }
+}
+
+if (personalMovieDB.count < 10) {
+    console.log("You had watched a few films");
+} else if (personalMovieDB.count > 10 && personalMovieDB.count < 30) {
+    console.log("You had watched enough films");
+} else if (personalMovieDB.count >= 30) {
+    console.log("You are cinemaddict");
+} else {
+    console.log('error');
+}
 
 console.log(personalMovieDB);
